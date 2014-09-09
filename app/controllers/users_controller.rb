@@ -13,6 +13,11 @@
   end
 
   def create
+    puts "================================="
+    puts params
+    puts params.require(:user)
+    puts params.require(:user).permit(:email, :first_name, :last_name, :password, :phone_num)
+    puts "================================="
     user_info = params.require(:user).permit(:email, :first_name, :last_name, :password, :phone_num)
     @user = User.create(user_info)
 		if @user.errors.any?
